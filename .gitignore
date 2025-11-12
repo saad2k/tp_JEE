@@ -1,0 +1,11 @@
+# Fichiers IntelliJ
+.idea/
+*.iml
+out/
+
+# Fichiers compilés (Maven/Gradle)
+target/
+build/
+
+# Logs
+*.log
