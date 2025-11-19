@@ -1,0 +1,29 @@
+<div class="p-3">
+  <div class="card">
+    <div class="card-header">Liste des Produits</div>
+    <div class="card-body">
+
+      <table class="table" *ngIf="customers; else loading">
+        <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>email</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of customers">
+          <td>{{ p.id }}</td>
+          <td>{{ p.name }}</td>
+          <td>{{ p.email }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <ng-template #loading>
+        <p>Chargement des produits...</p>
+      </ng-template>
+
+    </div>
+  </div>
+</div>
