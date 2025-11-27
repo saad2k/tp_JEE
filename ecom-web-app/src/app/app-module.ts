@@ -7,12 +7,14 @@ import { Products } from './products/products';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { Customers } from './customers/customers';
+import { Orders } from './orders/orders';
 
 @NgModule({
   declarations: [
     App,
     Products,
-    Customers
+    Customers,
+    Orders
   ],
   imports: [
     BrowserModule,

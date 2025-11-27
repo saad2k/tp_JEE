@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ChangeDetectorRef} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 
 @Component({
@@ -7,9 +7,9 @@ import {HttpClient} from '@angular/common/http';
   templateUrl: './customers.html',
   styleUrl: './customers.css',
 })
-export class Customers {
+export class Customers implements OnInit{
   customers :any;
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private cdr: ChangeDetectorRef) {
   }
 ngOnInit() {
   // REMARQUE BIEN LE <any> JUSTE APRÈS .get
@@ -17,12 +17,14 @@ ngOnInit() {
     .subscribe({
       next: data => {
         console.log("Données reçues du backend:", data); // Pour t'aider à debuguer
-        this.customers = data._embedded.products;
+        this.customers = data._embedded.customers;
+        this.cdr.detectChanges();
       },
       error: err => {
         console.error("Erreur lors de la récupération:", err);
       }
     });
 }
+
 
 }
